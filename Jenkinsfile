@@ -8,8 +8,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                input message: "Shall we build more?"
+                sh '''
+                    echo "We are approved; continue!"
+                    ls -lah
+                '''
                 sh 'echo "Prodution"'
-                sh '/home/jenkins/deploy.sh'
+                timeout(time: 1, unit: 'MINUTES') {
+                    sh '/home/jenkins/deploy.sh 180'
+                }
             }
         }
     }
