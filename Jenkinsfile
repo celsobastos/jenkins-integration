@@ -1,16 +1,15 @@
 pipeline {
     agent any
     stages {
-	stage('test') {
+	    stage('test') {
             steps {
                 echo 'my testes'
             }
         }
         stage('Deploy') {
             steps {
-                timeout(time: 1, unit: 'MINUTES') {
-                    sh '/home/jenkins/deploy.sh 5'
-                }
+                sh 'echo "Prodution"'
+                sh '/home/jenkins/deploy.sh'
             }
         }
     }
