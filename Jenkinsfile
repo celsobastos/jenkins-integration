@@ -9,7 +9,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 timeout(time: 1, unit: 'MINUTES') {
-                    sh '/var/lib/jenkins/workspace/jenkins-integration-pipeline/script/fibonacci.sh 5'
+                    sh '/home/jenkins/fibonacci.sh 5'
                 }
             }
         }
